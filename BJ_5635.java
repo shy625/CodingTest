@@ -1,11 +1,10 @@
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Scanner;
-
 /**
  * @ BJ 5635 생일
  * @ prob : https://www.acmicpc.net/problem/5635
  */
+
+import java.time.LocalDate;
+import java.util.Scanner;
 
 public class BJ_5635 {
     public static void main(String[] args) {
@@ -18,15 +17,9 @@ public class BJ_5635 {
             String name = sc.next();
             String[] arr = sc.nextLine().trim().split(" ");
             String birth = String.format("%s-%02d-%02d", arr[2], Integer.valueOf(arr[1]), Integer.valueOf(arr[0]));
-            // System.out.println(birth);
             studentArr[i] = new Student(name, LocalDate.parse(birth));
         }
-        System.out.println();
 
-        // for(Student i : studentArr) {
-        //     System.out.println(i.getName());
-        //     System.out.println(i.getBirth());
-        // }
         Student youngestStu = new Student("", LocalDate.MIN);
         Student oldestStu = new Student("", LocalDate.MAX);
         
