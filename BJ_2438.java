@@ -17,3 +17,11 @@ public class BJ_2438 {
         }
     }
 }
+
+// 다른 방법 1
+// 빈 문자열에 * 을 더해가면서 출력하는 방법
+
+// String s = "";
+// for(int i = 0; i < n; i++) {
+//     System.out.println(s + "*");
+// }
