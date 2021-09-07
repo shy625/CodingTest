@@ -5,7 +5,7 @@
 
 import java.util.Scanner;
 
-public class BJ_10952_AAddB5 {
+public class BJ_10952_A더하기B5 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
