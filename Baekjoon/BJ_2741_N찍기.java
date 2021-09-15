@@ -5,7 +5,7 @@
 
 import java.util.Scanner;
 
-public class BJ_2741 {
+public class BJ_2741_N찍기 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         

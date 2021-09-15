@@ -5,7 +5,7 @@
 
 import java.util.Scanner;
 
-public class BJ_1977 {
+public class BJ_1977_완전제곱수 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int m = 0, n = 0;

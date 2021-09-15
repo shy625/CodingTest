@@ -5,7 +5,7 @@
 
 import java.util.Scanner;
 
-public class BJ_11098 {
+public class BJ_11098_첼시를도와줘 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         

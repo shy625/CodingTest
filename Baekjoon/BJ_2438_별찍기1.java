@@ -5,7 +5,7 @@
 
 import java.util.Scanner;
 
-public class BJ_2438 {
+public class BJ_2438_별찍기1 {
     public static void main(String[] args) {
         int n = new Scanner(System.in).nextInt();
 

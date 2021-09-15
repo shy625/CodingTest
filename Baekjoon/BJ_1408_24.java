@@ -5,7 +5,7 @@
 
 import java.util.Scanner;
 
-public class BJ_1408 {
+public class BJ_1408_24 {
     public static void main(String[] args) {
         final int HOUR_2_SECOND = 3600;
         final int MINUTE_2_SECOND = 60;

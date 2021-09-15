@@ -5,7 +5,7 @@
 
 import java.util.Scanner;
 
-public class BJ_2739 {
+public class BJ_2739_구구단 {
     public static void main(String[] args) {
         int n = new Scanner(System.in).nextInt();
 
