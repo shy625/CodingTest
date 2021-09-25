@@ -25,7 +25,7 @@ public class BJ_10773_제로 {
         while(numStack.size() != 0) {
             sum += numStack.pop();
         }
-        // stack size 체크 없이 간단한 for문 이용해도 ok -> EmptyStackException 발생 x
+        // stack size 체크 없이 향상된 for문(for each) 이용해도 ok -> EmptyStackException 발생 x
         // for(int i : numStack) {
         //     sum += i;
         // }
