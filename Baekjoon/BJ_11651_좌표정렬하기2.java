@@ -9,6 +9,18 @@ import java.util.Scanner;
 
 public class BJ_11651_좌표정렬하기2 {
     public static void main(String[] args) {
+    
+        // inner class
+        class Coordinate {
+            int x;
+            int y;
+
+            public Coordinate(int x, int y) {
+                this.x = x;
+                this.y = y;
+            }
+        }
+
         Scanner sc = new Scanner(System.in);
 
         int n = sc.nextInt();
@@ -18,8 +30,8 @@ public class BJ_11651_좌표정렬하기2 {
         }
         Arrays.sort(positions, new Comparator<Coordinate>(){
             @Override
-            public int compare(Coordinate o1, Coordinate o2) {
-                return o1.y != o2.y ? o1.y - o2.y : o1.x - o2.x;
+            public int compare(Coordinate c1, Coordinate c2) {
+                return c1.y != c2.y ? c1.y - c2.y : c1.x - c2.x;
             }
         });
         for (Coordinate c : positions) {
@@ -30,12 +42,12 @@ public class BJ_11651_좌표정렬하기2 {
     }
 }
 
-class Coordinate {
-    int x;
-    int y;
-
-    public Coordinate(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
-}
+// class Coordinate {
+//     int x;
+//     int y;
+//
+//     public Coordinate(int x, int y) {
+//         this.x = x;
+//         this.y = y;
+//     }
+// }
