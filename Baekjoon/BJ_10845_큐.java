@@ -24,24 +24,25 @@ public class BJ_10845_큐 {
                     queue.add(Integer.valueOf(inputs[1]));
                     break;
                 case "pop" :
-                    System.out.println(queue.isEmpty() ? -1 : queue.poll());
+                    bw.write((queue.isEmpty() ? -1 : queue.poll()) + "\n");
                     break;
                 case "size" :
-                    System.out.println(queue.size());
+                    bw.write((queue.size()) + "\n");
                     break;
                 case "empty" :
-                    System.out.println(queue.isEmpty() ? 1 : 0);
+                    bw.write((queue.isEmpty() ? 1 : 0) + "\n");
                     break;
                 case "front" :
-                    System.out.println(queue.isEmpty() ? -1 : queue.getFirst());
+                    bw.write((queue.isEmpty() ? -1 : queue.getFirst()) + "\n");
                     break;
                 case "back" :
-                    System.out.println(queue.isEmpty() ? -1 : queue.getLast());
+                    bw.write((queue.isEmpty() ? -1 : queue.getLast()) + "\n");
                     break;
             }
         }
         
         br.close();
+        bw.flush();
         bw.close();
     }
 }
