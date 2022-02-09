@@ -36,7 +36,8 @@ public class SWEA_9229_한빈이와SpotMart {
 
             pickedSnack = new int[2];
             max = -1;
-            combi(0, 0);
+            // combi(0, 0);
+            combi(0, 0, 0);
 
             System.out.println("#" + t + " " + max);
         }
@@ -44,7 +45,7 @@ public class SWEA_9229_한빈이와SpotMart {
         br.close();
     }
 
-    // 조합
+    // 조합 1
     static void combi(int count, int start) {
         if(count == 2) {
             int sum = pickedSnack[0] + pickedSnack[1];
@@ -56,6 +57,22 @@ public class SWEA_9229_한빈이와SpotMart {
         for(int i = start; i < N; i++) {
             pickedSnack[count] = snacks[i];
             combi(count + 1, i + 1);
+        }
+    }
+
+    // 조합 2
+    static void combi(int count, int start, int sum) {
+        if(count == 2) {
+            if(sum <= M) {  // 두 과자의 합이 최대 무게보다 작으면 max 체크
+                max = Math.max(max, sum);
+            }
+            return;
+        }
+        for(int i = start; i < N; i++) {
+            if(sum > M) {   // prooning - 2개를 다 고르기 전에 이미 총합이 M을 넘으면 skip
+                continue;
+            }
+            combi(count + 1, i + 1, sum + snacks[i]);
         }
     }
 }
