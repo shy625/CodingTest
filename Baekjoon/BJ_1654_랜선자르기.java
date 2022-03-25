@@ -26,20 +26,8 @@ public class BJ_1654_랜선자르기 {
 
         long max = total / N;
         long min = 1L;
-        while(true) {
+        while(min <= max) {
             long mid = (max + min) / 2;
-            if(min == mid) {
-                int maxCountCheck = 0;
-                for(int i = 0; i < K; i++) {
-                    maxCountCheck += lines[i] / max;
-                }
-                if(maxCountCheck >= N) {
-                    System.out.println(max);
-                } else {
-                    System.out.println(min);
-                }
-                break;
-            }
             
             int count = 0;
             for(int i = 0; i < K; i++) {
@@ -47,14 +35,19 @@ public class BJ_1654_랜선자르기 {
             }
 
             if(count >= N) {    // 길이 늘리기
-                min = mid;
+                min = mid + 1;
             } else {    // 길이 줄이기
-                max = mid;
+                max = mid - 1;
             }
         }
+        System.out.println((max + min) / 2);
 
         br.close();
     }
 }
+
 // 풀이 1
 // 이분탐색 이용
+
+// 풀이 2
+// 이분탐색 이용 - 풀이 1 개선
