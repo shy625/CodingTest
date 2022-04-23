@@ -14,43 +14,27 @@ public class BJ_5525_IOIOI {
 
         int N = Integer.parseInt(br.readLine());
         int M = Integer.parseInt(br.readLine());
-        String str = br.readLine();
-
-        // 문자열 P 생성
-        StringBuilder sb = new StringBuilder();
-        for(int i = 0; i < N; i++) {
-            sb.append("IO");
-        }
-        sb.append("I");
-        String p = sb.toString();
-
+        String S = br.readLine();
+    
+        int p = 0;
         int count = 0;
         int idx = 0;
-        while(idx + p.length() <= M) {
-            idx = str.indexOf(p, idx);  // 문자열 S의 idx부터 문자열 P 찾기
-            if(idx < 0) {   // 없으면 종료
-                break;
+        while(idx < M-2) {
+            if(S.charAt(idx) == 'I' && S.charAt(idx+1) == 'O' && S.charAt(idx+2) == 'I') {  // 패턴 O
+                p++;
+                idx += 2;   // 패턴으로 확인한 부분 다음부터 진행
+            } else {    // 패턴 X
+                p = 0;
+                idx++;
             }
-            count++;
-            while(idx + p.length() + 1 < M) {   // 찾은 위치에서부터 이동하면서 확인
-                if(!nextIOCheck(str, p, idx)) {     // P가 안되면 종료
-                    break;
-                }
+            if(p == N) {    // 문자열 P 성립
                 count++;
-                idx += 2;   // 2칸 이동
+                p--;    // 이후에도 이어질 수 있기 때문에 0이 아닌 맨 앞 패턴만 제거
             }
-            idx += p.length();  // 문자열 길이만큼 idx 이동
         }
-
         System.out.println(count);
 
         br.close();
-    }
-
-    // 찾은 문자열 마지막의 다음, 다다음 문자 확인
-    private static boolean nextIOCheck(String str, String p, int idx) {
-        return str.charAt(idx + p.length()) == 'O'
-                && str.charAt(idx + p.length() + 1) == 'I';
     }
 }
 
@@ -59,3 +43,14 @@ public class BJ_5525_IOIOI {
 // 생성한 문자열 P를 입력으로 주어진 문자열 S에서 indexOf()를 이용해 찾음
 // indexOf()를 이용해 찾은 위치에서부터 오른쪽으로 2개씩 움직이면서 확인 (슬라이딩 윈도우)
 // https://www.acmicpc.net/source/42195823
+
+// 풀이 2 - 시간초과
+// 풀이 1과 비슷하나 N에 따라 문자열 P를 생성하지 않고 바로 진행
+// https://www.acmicpc.net/source/42398706
+
+// 풀이 3
+// 주어진 문자열 S에 대해 IOI 패턴의 개수를 체크
+// 패턴의 개수가 N이 되면 개수 증가, 패턴 개수 -1
+// 패턴이 아니면 패턴 개수 0
+// https://velog.io/@woga1999/BOJ-5525%EB%B2%88-IOIOI-Python
+// https://donggoolosori.github.io/2020/09/27/boj-5525/
