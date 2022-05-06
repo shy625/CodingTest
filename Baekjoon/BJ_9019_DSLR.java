@@ -49,23 +49,17 @@ public class BJ_9019_DSLR {
     }
 
     private static int cmdL(int n) {
-        char[] base = {'0', '0', '0', '0'};
-        for(int i = 3; i >= 0; i--) {
-            int idx = i == 0 ? 3 : i - 1;
-            base[idx] = (char)(n % 10 + '0');
-            n /= 10;
-        }
-        return Integer.parseInt(String.valueOf(base));
+        int tmp = n % 1000;
+        tmp *= 10;
+        tmp += n / 1000;
+        return tmp;
     }
 
     private static int cmdR(int n) {
-        char[] base = {'0', '0', '0', '0'};
-        for(int i = 3; i >= 0; i--) {
-            int idx = i == 3 ? 0 : i + 1;
-            base[idx] = (char)(n % 10 + '0');
-            n /= 10;
-        }
-        return Integer.parseInt(String.valueOf(base));
+        int tmp = n % 10;
+        tmp *= 1000;
+        tmp += n / 10;
+        return tmp;
     }
 
     private static String bfs(int a, int b) {
@@ -111,3 +105,15 @@ public class BJ_9019_DSLR {
 // 주어진 숫자에 대해 D, S, L, R을 수행하며 BFS로 이동
 // 목표 숫자가 되면 BFS 종료
 // 메모리, 시간 개선 필요 - 308156kb / 10096ms
+// https://www.acmicpc.net/source/42774463
+
+// 풀이 2
+// 풀이 1에서 char 배열을 바탕으로 구현했던 L, R을 int 값에 /, % 을 이용해 구현하는 것으로 변경
+// 속도 개선 - 8248ms
+
+// 다른 풀이 1
+// 수행한 명령어를 저장하기 위해 따로 클래스를 만들지 않고
+// 현재 값을 자식, 이전 값을 부모로 하여 자신의 이전 값을 저장하는 int 배열 생성,
+// idx를 값으로 하여 해당 값(idx)에 어떤 명령어를 수행하여 왔는지를 저장하는 char 배열 생성
+// a->b에 도착한 이후로 위 2개 배열을 거꾸로 거슬러 올라가며 수행한 명렁어 리스트를 구함
+// https://www.acmicpc.net/source/36485686
